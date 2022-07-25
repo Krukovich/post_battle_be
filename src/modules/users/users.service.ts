@@ -1,7 +1,7 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { prepareURL } from '../../../utils';
-import { IUsers } from "./users.interface";
+import { IUsers } from './users.interface';
 
 @Injectable()
 export class UsersService {
@@ -12,10 +12,7 @@ export class UsersService {
       } = await axios.get(prepareURL(limit));
       return users;
     } catch (error) {
-      throw new HttpException(
-        `${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      throw new HttpException(`${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 }
