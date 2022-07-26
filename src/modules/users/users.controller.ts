@@ -6,7 +6,7 @@ import { IUsers } from './users.interface';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  @Get()
+  @Get('users')
   @HttpCode(HttpStatus.OK)
   async getHello(@Param('limit') limit?: number): Promise<IUsers[]> {
     return await this.userService.getUsers(limit);
